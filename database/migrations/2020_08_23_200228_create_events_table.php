@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('nom');
             $table->text('description');
             $table->integer('edition');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamp('date_debut')->default(now());
             $table->timestamp('date_fin')->default(now());
             $table->integer('nombre_min_participant')->nullable();
