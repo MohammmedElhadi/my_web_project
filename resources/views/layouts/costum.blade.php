@@ -21,7 +21,7 @@
   <body>
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
             <div class="container">
       
               <div class="navbar-left">
@@ -37,13 +37,13 @@
       
                 <ul class="nav nav-navbar">
                   <li class="nav-item">
-                    <a class="nav-link" href="#"> {{ __('Home') }} </span></a>
+                  <a class="nav-link" href="{{ route('welcome') }}"> {{ __('Home') }} </span></a>
                   </li>
       
 
       
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('Topics') }} <span class="arrow"></span></a>
+                    <a class="nav-link" href="#">{{ __('Events') }} <span class="arrow"></span></a>
                     <nav class="nav">
                       <a class="nav-link" href="blog/classic.html">Classic</a>
                       <a class="nav-link" href="blog/grid.html">Grid</a>
@@ -52,7 +52,7 @@
                   </li>
       
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('About') }} </a>
+                    <a class="nav-link" href="{{ route('about') }}">{{ __('About') }} </a>
 
                   </li>
                   <li class="nav-item">
@@ -127,9 +127,9 @@
           @else
           @endguest
 
-          </nav><!-- /.navbar -->
+        </nav><!-- /.navbar -->
 
-    @yield('content')
+            @yield('content')
 
 
             <!-- Footer -->
