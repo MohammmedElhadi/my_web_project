@@ -24,4 +24,5 @@ Route::resource('evenement' , 'EventController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('user' , 'MyUserController');
-Route::get('/admin/revoke/{id}' , 'MyUserController@revoke');
+Route::get('/admin/revoke/' , 'MyUserController@revoke');
+Route::get('/admin/make/' , 'MyUserController@make');
