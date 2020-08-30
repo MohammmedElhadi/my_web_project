@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Event;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/about', function () {return view('frontend.about');})->name('about');
 
-Route::get('/events', function () {return view('frontend.events');})->name('events');
+Route::get('/events', function () {return view('frontend.events.index')->with('events',Event::paginate(5));})->name('events');
 
 

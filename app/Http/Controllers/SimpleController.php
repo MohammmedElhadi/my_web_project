@@ -16,7 +16,7 @@ class SimpleController extends Controller
      */
     public function index()
     {
-        return view('frontend.events.index')->with('events',Event::paginate(5));
+        
     }
 
     /**
