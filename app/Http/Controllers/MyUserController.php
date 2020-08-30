@@ -10,7 +10,7 @@ class MyUserController extends Controller
         return view('user.index')->with('users',User::all());
     }
     function revoke($data){
-       
+        
         $user = User::find($data->id);
         $user->removRole('admin');
         return  response()->json('success', 200);

@@ -79,11 +79,11 @@
         var idd = id;
         $.ajax({
             url : "/admin/revoke/",
+            method : 'GET',
             data:{"_token": "{{ csrf_token() }}",
              'id': id
             },
 
-            method : 'GET',
             success: function(){
                 alert('role revoked');
             }
