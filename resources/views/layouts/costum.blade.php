@@ -43,28 +43,29 @@
 
       
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('Events') }} <span class="arrow"></span></a>
-                    <nav class="nav">
-                      <a class="nav-link" href="blog/classic.html">Classic</a>
-                      <a class="nav-link" href="blog/grid.html">Grid</a>
-                      <a class="nav-link" href="blog/list.html">List</a>
-                      <a class="nav-link" href="blog/sidebar.html">Sidebar</a>
+                    <a class="nav-link" href="{{ route('events') }}">{{ __('Events') }}</a>
                   </li>
       
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">{{ __('About') }} </a>
 
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#modal-contact">{{ __('Contact') }} </a>
 
-                  </li>   
                   <li class="nav-item">
                     <a class="nav-link" href="#">{{ __('Language') }} <span class="arrow"></span></a>
                     <nav class="nav">
                       <a class="nav-link" href="">Fr</a>
                       <a class="nav-link" href="">En</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                  </li>
+
+
+
                   @guest
                   @else
                   <li class="nav-item">
