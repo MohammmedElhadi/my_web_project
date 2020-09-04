@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+@endsection
 @section('content')
 <div class="content-wrapper">
     <!-- Main content -->
@@ -35,10 +38,10 @@
                               <td>{{$evenement->edition}}</td>
                               <td>{{$evenement->date_debut}}</td>
                               <td>{{$evenement->etat}}</td>
-                              <td>{{$evenement->nom}}</td>
+                              <td>{{$evenement->domaines()->count()}}</td>
                               <td >
                         
-                              <button type="button" id="Modifier" class="btn btn-info btn-sm"  onclick="handleedit('{{ $evenement->id }}')" >
+                              <button type="button" id="Modifier" class="btn btn-info btn-sm"  onclick="handleedit('{{ $evenement }}')" >
                                     {{ __('Modifier') }}
                                 </button>
                               <button type="button" id="detail" class="btn btn-info btn-sm" onclick="mouseOnRow('{{$evenement->description}}' , '{{$evenement->nom}}')" >
@@ -78,31 +81,38 @@
             <form action="{{route('evenement.store')}}" method="post">
               @csrf
                 <div class="form-group">
-                  <input type="text" name="nom_evenement" id="nom_evenement" class="form-control" placeholder="Nom de l'evenement"  
+                  <input type="text" required name="nom_evenement" id="nom_evenement" class="form-control" placeholder="Nom de l'evenement"  
                                     class="text-muted">
                 </div>
                 <div class="form-group">
-                  <textarea name="description" id="description" cols="3" rows="3" class="form-control" placeholder="Description"></textarea>
+                  <textarea name="description"  required id="description" cols="3" rows="3" class="form-control" placeholder="Description"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="edition" id="edition" class="form-control" placeholder="Edition"  
+                    <input type="text"  name="edition" required id="edition" class="form-control" placeholder="Edition"  
                                       class="text-muted">
                 </div>
                 <div class="form-group">
-					<label for="published_at">published At</label>
-					<input class="form-control " type="text" name="published_at" id="published_at" >
-				</div>
+                  <label for="date_debut">Date Debut</label>
+                  <input class="form-control " required class="date" type="text" name="date_debut" id="date_debut" >
+                </div>
+                <div class="form-group">
+                  <label for="date_fin">Date fin</label>
+                  <input class="form-control " required class="date" type="text" name="date_fin" id="date_fin" >
+                </div>
                 <div class="form-group">
                     <label>{{__('Etat')}}</label>
-                    <select class="form-control select2" style="width: 100%;">
+                    <select  required name   = "etat"class="form-control select2" style="width: 100%;">
                       <option >{{__('programme')}}</option>
                       <option >{{__('encours')}}</option>
                       <option >{{__('reporte')}}</option>
                       <option >{{__('annule')}}</option>
                       <option >{{__('termine')}}</option>
-                     
                     </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="image" >Logo</label>
+                    <input type="file" required class="form-control" name="image" id="image" >
                   </div>
                   <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -198,25 +208,29 @@
     </div>
     <!-- /.modal-dialog -->
   </div>
+ 
+
+ @endsection
  @section('js')
  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
  <script>
     
-        flatpickr('#published_at',{
-		enableTime: false
-        }
-    );
+    flatpickr('#date_debut');
+    flatpickr('#date_fin');
+  
    
     function mouseOnRow(desc ,nom) {
         document.getElementById('modal_title').innerHTML = nom;
         document.getElementById('desc').innerHTML = desc;
         $('#modal-lg').modal('show');
     }
+
+    function handleedit(data){
+      var event =JSON.parse(data)
+      console.log(event.nom)
+    }
     
     </script>
-
- @endsection
-
 
 @endsection
