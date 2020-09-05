@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->integer('edition');
             $table->string('logo')->nullable();
-            $table->timestamp('date_debut')->default(now());
-            $table->timestamp('date_fin')->default(now());
+            $table->date('date_debut')->default(now());
+            $table->date('date_fin')->default(now());
             $table->integer('nombre_min_participant')->nullable();
             $table->integer('number_max_participant')->nullable();
             $table->enum('etat',['programe','encours','reporte','annule','termine']);
