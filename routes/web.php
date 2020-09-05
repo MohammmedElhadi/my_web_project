@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Event;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
