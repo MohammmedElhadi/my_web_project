@@ -125,8 +125,8 @@
                     <p style="width: 1%"></p>
                     <a class="btn btn-round btn-light btn-sm" data-toggle="modal" data-target="#modal-sign-up">{{ __('Sign Up') }}</a>               
               @endif
-          @else
-          @endguest
+              @else
+              @endguest
 
         </nav><!-- /.navbar -->
 
@@ -333,6 +333,7 @@
             </div>
           </div>
 
+          <button class="btn btn-circle btn-primary scroll-top"><i class="fa fa-angle-up"></i></button>
 
     <!-- Scripts -->
     <script src="{{asset('assets/js/page.min.js')}}"></script>

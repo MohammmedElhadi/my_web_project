@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {return view('welcome');})->name('welcome');
 Route::get('/about', function () {return view('frontend.about');})->name('about');
 Route::resource('evenement' , 'EventController');
-Route::get('/events', function () { return view('frontend.events')->with('evenments',Event::paginate(5));})->name('events');
+Route::get('/events', function () { return view('frontend.events')->with('evenments',Event::all())->with('categories', 'App\Category'::all())->with('domaines', 'App\Domaine'::all());})->name('events');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

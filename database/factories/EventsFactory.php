@@ -13,8 +13,9 @@ $factory->define(App\Event::class, function (Faker $faker) {
             'edition' => '1',
             'date_debut' => $faker->date(),
             'date_fin' => $faker->date(),
-            'nombre_min_participant' => '50',
-            'number_max_participant' => '100',
+            'nombre_min_participant' => 50,
+            'number_max_participant' => 100,
             'etat' => 'programe',
-    ];
+            'category_id' => $faker->numberBetween(1,3),
+        ];
 });
