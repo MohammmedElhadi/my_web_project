@@ -99,7 +99,7 @@
 
 
                 <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
+                  <a href="" class="nav-link">
                     <i class="nav-icon fas fa-table"></i>
                     <p>
                       {{__('Evenement')}}
@@ -108,7 +108,7 @@
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href=" " class="nav-link">
+                      <a href=" {{route('evenement.index')}}" class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
                         <p>{{__('List des evenements')}}</p>
                       </a>

@@ -138,28 +138,55 @@
           </button>
         </div>
         <div class="modal-body">
-        <form action="{{route('evenement.store')}}" method="post">
+        <form action="" method="post">
             <div class="form-group">
-              <input type="text" name="nom_evenement" id="nom_evenement" class="form-control" placeholder="Nom de l'evenement"  
+              <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom de l'evenement"  
                                 class="text-muted">
             </div>
             <div class="form-group">
-              <input type="text" name="abr_evenement" id="abr" class="form-control" placeholder="Description">
+              <textarea type="text" name="description" id="description_e" class="form-control" placeholder="Description"></textarea>
             </div>
             <div class="form-group">
-                <label>Etat</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  
-                </select>
-              </div>
+              <input type="text" name="edition" id="edition_e" class="form-control" placeholder="edition">
+            </div>
+           
+          <div class="form-group">
+            <label for="date_debut">Date Debut</label>
+            <input class="form-control " required class="date" type="text" name="date_debut" id="date_debut_e" >
+          </div>
+          <div class="form-group">
+            <label for="date_fin">Date fin</label>
+            <input class="form-control " required class="date" type="text" name="date_fin" id="date_fin_e" >
+          </div>
+          <div class="form-group">
+
+            <input  class="form-control  "type="number" name="nombre_max_participant_e" id="nombre_max_participant">
+          </div>
+          <div class="form-group">
+
+            <input class="form-control " type="number" name="nombre_min_participant_e" id="nombre_min_participant">
+          </div>
+            <div class="form-group">
+              <label>{{__('Etat')}}</label>
+              <select  required name   = "etat_e"class="form-control select2" style="width: 100%;">
+                <option >{{__('programme')}}</option>
+                <option >{{__('encours')}}</option>
+                <option >{{__('reporte')}}</option>
+                <option >{{__('annule')}}</option>
+                <option >{{__('termine')}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="image" >Logo</label>
+              <input type="file" required class="form-control" name="image" id="image" >
+            </div>
             
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
         </form>
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
       </div>
       <!-- /.modal-content -->
     </div>
@@ -227,8 +254,20 @@
     }
 
     function handleedit(data){
-      var event =JSON.parse(data)
-      console.log(event.nom)
+    var even = JSON.parse(data);
+    document.getElementById('nom').value = even.nom;
+    console.log(document.getElementById('description').value)
+    document.getElementById('description_e').value = even.description;
+
+    document.getElementById('edition_e').value = even.edition
+    document.getElementById('date_debut_e').value = even.date_debut
+    document.getElementById('date_fin_e').value = even.date_fin
+    // document.getElementById('nombre_max_participant_e').value = even.nombre_max_participant
+    // document.getElementById('nombre_min_participant_e').value = even.nombre_min_participant
+    // document.getElementById('etat_e').value = even.etat
+
+
+    $('#modal-edit').modal('show')
     }
     
     </script>

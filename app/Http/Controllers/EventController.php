@@ -13,6 +13,7 @@ class EventController extends Controller
      */
     public function index()
     {
+        //DB::table('events')->orderBy('created_at','desc')->get()
         return view('event.index')->with('evenements' , Event::paginate(10));
     }
 
@@ -34,8 +35,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         Event::create([
-            'nom' => $request->nom_evenemet,
+            'nom' => $request->nom_evenement,
             'description' => $request->description,
             'edition' =>$request->edition,
             'date_debut' => $request->date_debut,
@@ -46,6 +48,7 @@ class EventController extends Controller
             
     ]
         );
+        return redirect()->back();
     }
 
     /**
@@ -79,7 +82,20 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $reqest->only(['nom','description','edition','date_debut',
+                                'date_fin', 'nbr_min', 'nbr_max','etat']);
+  Event::update([
+       'nom' => $request->nom_evenement,
+      'description' => $request->description,
+      'edition' =>$request->edition,
+       'date_debut' => $request->date_debut,
+      'date_fin' => $request->date_fin,
+       'nombre_min_participant' => $request->nbr_min,
+       'number_max_participant' => $request->nbr_max,
+       'etat' =>$request->etat,
+                                    
+                            ]
+                                );
     }
 
     /**
