@@ -14,16 +14,16 @@
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+     --}}
     <link rel="stylesheet" href="{{asset('plugins_lte/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+    {{-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}"> --}}
   @yield('css')
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('dist_lte/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  {{-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> --}}
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -120,7 +120,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href=" " class="nav-link">
+                      <a href="{{route('domaine.index')}} " class="nav-link">
                         <i class="nav-icon far fa-circle"></i>
                         <p>{{__('Domaines')}}</p>
                       </a>

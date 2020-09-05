@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
-class EventController extends Controller
+use App\Domaine;
+class DomaineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('event.index')->with('evenements' , Event::paginate(10));
+        return view('domaine.index')->with('domaines' , Domaine::paginate(4));
     }
 
     /**
@@ -34,18 +34,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        Event::create([
-            'nom' => $request->nom_evenemet,
-            'description' => $request->description,
-            'edition' =>$request->edition,
-            'date_debut' => $request->date_debut,
-            'date_fin' => $request->date_fin,
-            'nombre_min_participant' => $request->nbr_min,
-            'number_max_participant' => $request->nbr_max,
-            'etat' =>$request->etat,
-            
-    ]
-        );
+        Domaine::create([
+            'nom' => $request->nom_domaine
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -77,9 +69,14 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  $id)
     {
-        //
+        $dom = Domaine::find($id);
+        //dd($dom);
+
+        $data=$request->only(['nom']);
+        $dom->update($data);
+        return redirect()->back();
     }
 
     /**
@@ -90,6 +87,6 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Domaine::find($id)->delete();
     }
-}
+    }

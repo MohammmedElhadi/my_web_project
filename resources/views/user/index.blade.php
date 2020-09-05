@@ -30,18 +30,20 @@
                           <td class="table_row" >{{ $index + 1 }}  </td>                          
                           <td >{{$user->name}}</td>
                           <td>{{$user->email}}</td>
-                          <td>{{$user->getRoleNames()[0]}}</td>
-                          <td >
+                          <td id="{{$user->id}}">{{$user->getRoleNames()[0]}}</td>
+                          <td  >
                            
-                                 <button @if ($user->getRoleNames()[0] != "admin")
+                                 <button  id="revoke{{$user->id}}"
+                                 @if ($user->getRoleNames()[0] != "admin")
                                      disabled
-                                 @endif class="btn btn-success btn-sm"  onclick='revoke({{$user->id}})'>revoke</button>
+                                 @endif  
+                                 class="btn btn-success btn-sm"  onclick='revoke({{$user->id}})'>revoke</button>
                               
-                             <button 
+                             <button id="make{{$user->id}}"
                              @if ($user->getRoleNames()[0] == "admin")
                                      disabled
                             @endif
-                             class="btn btn-danger btn-sm">make an admin</button>
+                             class="btn btn-warning btn-sm"  onclick='make({{$user->id}})'>make as admin</button>
 
                            
                             
@@ -76,16 +78,34 @@
 
 <script>
     function revoke(id){
-        var idd = id;
         $.ajax({
-            url : "/admin/revoke/",
+            url : "/admin/revoke",
             method : 'GET',
             data:{"_token": "{{ csrf_token() }}",
              'id': id
             },
 
             success: function(){
-                alert('role revoked');
+              document.getElementById('revoke'+id).setAttribute('disabled', true);
+              document.getElementById('make'+id).removeAttribute('disabled');
+              document.getElementById(id).innerText = 'Guest';
+            }
+        })
+
+        
+    }
+    function make(id){
+        $.ajax({
+            url : "/admin/make/",
+            method : 'GET',
+            data:{"_token": "{{ csrf_token() }}",
+             'id': id
+            },
+
+            success: function(){
+              document.getElementById('make'+id).setAttribute('disabled', true);
+              document.getElementById('revoke'+id).removeAttribute('disabled');
+              document.getElementById(id).innerText = 'Admin';
             }
         })
 
