@@ -5,6 +5,8 @@ use App\Domaine;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use App\User;
+use Illuminate\Support\Str;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,25 +29,40 @@ class DatabaseSeeder extends Seeder
 
 
         Category::create([
-            'nom' => 'cat_1',
+            'nom' => 'féte',
         ]);
         Category::create([
-            'nom' => 'cat_2',
+            'nom' => "journee d'etude",
         ]);
         Category::create([
-            'nom' => 'cat_3',
+            'nom' => 'confirence',
         ]);
-        Domaine::create([
-            'nom' => 'dom_1',
+        Category::create([
+            'nom' => 'porte ouverte',
         ]);
-        Domaine::create([
-            'nom' => 'dom_2',
+        Category::create([
+            'nom' => 'séminaire',
         ]);
-        Domaine::create([
-            'nom' => 'dom_3',
+        Category::create([
+            'nom' => 'atelier',
         ]);
 
-        factory(App\Event::class , 20)->create();
+        factory(App\Event::class , 10)->create();
+
+
+        Domaine::create([
+            'nom' => 'G.informatique',
+        ])->events()->attach(['1','5','6']);
+        Domaine::create([
+            'nom' => 'G.mechanique',
+        ])->events()->attach(['8','10']);
+        Domaine::create([
+            'nom' => 'G.chimie',
+        ])->events()->attach(['2','9','8']);;
+        Domaine::create([
+            'nom' => 'G.Electrique',
+        ])->events()->attach(['4','2','3','7']);
+
 
     }
 }
