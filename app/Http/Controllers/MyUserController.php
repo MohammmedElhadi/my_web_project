@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DataTables;
 class MyUserController extends Controller
 {
     function index (){
-        return view('user.index')->with('users',User::all());
+        return view('user.index');//->with('users',User::all());
     }
+    public function getEvents(){
+
+        return Datatables::of(User::query())->make(true);
+    }
+
     function revoke(){
         
         $user = User::find($_GET['id']);

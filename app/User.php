@@ -38,9 +38,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function interrested()
+    public function events()
     {
-        return $this->belongsToMany('App\Events' , 'event_user', 'user_id' , 'event_id');
+        return $this->belongsToMany('App\Event' , 'event_user', 'user_id' , 'event_id');
     }
 
 }

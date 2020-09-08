@@ -29,6 +29,10 @@ Route::resource('domaine' , 'DomaineController');
 Route::get('/admin/revoke/' , 'MyUserController@revoke');
 Route::get('/admin/make/' , 'MyUserController@make');
 
+Route::get('/event_data/', 'EventController@getEvents')->name('datatables.data');
+
+Route::get('ajax/notify/{id}', 'EventController@sendNotification');
+
 Auth::routes();
 
 
