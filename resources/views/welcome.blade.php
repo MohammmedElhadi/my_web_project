@@ -12,15 +12,15 @@
             <div class="row align-items-center h-100">
     
               <div class="col-lg-6">
-                <h1>{{ __('Welcome') }}</h1>
-                <p class="lead mt-5 mb-8">Support your workflow with lightweight tools and features. Then work how you work best—we'll follow your lead.</p>
+                <h1>{{ __('BIENVENUE') }}</h1>
+                <p class="lead mt-5 mb-8">{{ __("Le planificateur des evenements de l'école militaire poytechnique chahid - Abderahman TALEB") }}</p>
                 <p class="gap-xy">
-                  <a class="btn btn-round btn-success mw-150" href="#section-features">{{ __('Coming soon') }}</a>
+                  <a class="btn btn-round btn-success mw-150" href="#section-features">{{ __('A propos') }}</a>
                 </p>
               </div>
     
               <div class="col-lg-5 ml-auto">
-                <img class="mt-5" src="../assets/img/preview/laptop-1.png" alt="img">
+                <img class="mt-5" src="../assets/img/laptop-1.png" alt="img">
               </div>
     
             </div>
@@ -41,53 +41,75 @@
           !-->
           <section id="section-features" class="section bg-gray">
             <div class="container">
-             
-              
               <div class="row gap-y align-items-center">
-                <div class="col-md-6 ml-auto">
-                  <h4>Getting Started page</h4>
-                  <p>As part of efforts to improve user onboarding, I shipped an experiment to a subset of new users showing them a Getting Started page immediately after signup to help them get to what we think are some of the most important actions for new users to take. We compared the subset of users against a control group to see whether such an experience improved engagement over a period of time.</p>
+      
+                <div class="col-md-7 mx-auto">
+                  <h1>A propos</h1>
+                  <p class="lead-3">
+                    L'EMP est un établissement d’enseignement supérieur pluridisciplinaire, placé sous la double tutelle du Ministère de la Défense Nationale et du Ministère chargé de l’enseignement supérieur et de la recherche scientifique.
+
+L’EMP est née en 1995 de la reconversion de l’École Nationale des Ingénieurs et Techniciens d’Algérie (ENITA), créée en 1967.
+                  </p>
                 </div>
-    
-                <div class="col-md-5 order-md-first">
-                  <img class="rounded shadow-2" src="../assets/img/preview/dribbble-6.png" alt="...">
+                
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="container">
+              <div class="row gap-y text-center" >
+                <div class="col-md-4">
+                  <p class="small text-uppercase ls-2">Nombre Total des evenmemet </p>
+                  <p class="lead-8 lh-1 fw-700" data-provide="countup" data-from="0" data-to="{{ $evenments->count()}}"></p>
+                </div>
+                <div class="col-md-4">
+                  <p class="small text-uppercase ls-2">Nombre Totale des Participants</p>
+                <p class="lead-8 lh-1 fw-700" data-provide="countup" data-from="0" data-to="{{ $users->count() }}"></p>
+                </div>
+                <div class="col-md-4">
+                  <p class="small text-uppercase ls-2">Nombre Total des Domaine </p>
+                  <p class="lead-8 lh-1 fw-700" data-provide="countup" data-from="0" data-to="{{ $domaines->count() }}"></p>
                 </div>
               </div>
-    
-    
-              <hr class="my-8">
-    
-    
+            </div>
+            <div class="divider"></div>
+
+            <div class="container" >
               <div class="row gap-y align-items-center">
-                <div class="col-md-6 mr-auto">
-                  <h4>Outdated comments toggling</h4>
-                  <p>Last week we shipped outdated comments...well, brought them back, actually. We used to show collapsed comments on outdated diffs as a single line, but removed that when we shipped code review recently. We brought that back last week with an improvement: you can now toggle open threads on outdated diffs in a review individually.</p>
+    
+                <div class="col-md-7 mx-auto">
+                  <h2>Notre mission</h2>
+                  <p class="lead">L'ouverture de l’École sur l’environnement national et international est une réalité. Elle prend toutes les formes couramment pratiquées en la matière telles que:
+                </p>
+    
+                  <br>
+    
+                  <p>
+                    <i class="ti-check text-success mr-2"></i>
+                    <span> Conventions de coopération en matière de formation et de recherche avec des écoles et établissements nationaux et étrangers</span>
+                  </p>
+    
+                  <p>
+                    <i class="ti-check text-success mr-2"></i>
+                    <span> Organisations et participations aux manifestations scientifiques à l’échelle nationale et internationale</span>
+                  </p>
+    
+                  <p>
+                    <i class="ti-check text-success mr-2"></i>
+                    <span> Coopération en matière d’ingénierie pédagogique avec des écoles de renommées mondiales</span>
+                  </p>
+    
+                  <p>
+                    <i class="ti-check text-success mr-2"></i>
+                    <span> Organisation de séjours en laboratoires étrangers et formations doctorales et post-graduées</span>
+                  </p>
                 </div>
     
-                <div class="col-md-5">
-                  <img class="rounded shadow-2" src="../assets/img/preview/dribbble-7.png" alt="...">
-                </div>
               </div>
-    
-    
-              <hr class="my-8">
-    
-    
-              <div class="row gap-y align-items-center">
-                <div class="col-md-6 ml-auto">
-                  <h4>Code review illustrations</h4>
-                  <p>Less an illustration, and more a literal proxy. These show up when the feature's introduced. Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing. Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing.</p>
-                </div>
-    
-                <div class="col-md-5 order-md-first">
-                  <img class="rounded shadow-2" src="../assets/img/preview/dribbble-8.png" alt="...">
-                </div>
-              </div>
-    
-    
             </div>
           </section>
-    
+          <section id="section-mission" class="section">
+
+          </section>    
     
           <!--
           |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
