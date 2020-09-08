@@ -102,7 +102,7 @@ class EventController extends Controller
             'date_debut' => $request->date_debut,
             'date_fin' => $request->date_fin,
             'nombre_min_participant' => $request->nbr_min,
-            'number_max_participant' => $request->nbr_max,
+            'nombre_max_participant' => $request->nbr_max,
             'etat' =>$request->etat,
             
     ]
