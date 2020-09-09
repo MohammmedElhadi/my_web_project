@@ -10,11 +10,11 @@
     <title>EMP Events</title>
 
     <!-- Styles -->
-    <link href="{{('assets/css/page.min.css')}}" rel="stylesheet">
-    <link href="{{('assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/page.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{('assets/img/apple-touch-icon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('assets/img/apple-touch-icon.png')}}">
     <link rel="icon" href="{{('assets/img/scs.png')}}">
   </head>
 
@@ -32,7 +32,7 @@
                 </a>
               </div>
       
-              <section class="navbar-mobile">
+              <section id = "notifications" class="navbar-mobile">
                 <span class="navbar-divider d-mobile-none"></span>
       
                 <ul class="nav nav-navbar">
@@ -53,6 +53,19 @@
                     <nav class="nav">
                       <a class="nav-link" href="">Français</a>
                       <a class="nav-link" href="">Arabe</a>
+                  </li>
+                  <li   class="nav-item">
+                    <a class="nav-link" href="#"> <i class="fa fa-bell" aria-hidden="true"></i>@auth @if(Auth::user()->unreadNotifications()->count() > 0) <span class="badge badge-danger">{{Auth::user()->unreadNotifications()->count()}}</span> @endif @endauth <span class="arrow"></span></a>
+                    <nav class="nav">
+                      @auth
+                      @if(Auth::user()->unreadNotifications()->count() > 0)
+                      @foreach (Auth::user()->unreadNotifications as $notification)
+                      
+                      <a class="nav-link" href="{{route('myevents.notifications')}}">L'evenement {{($notification->data['event']['nom'])}} est bientot Preparez vous! </a>
+                      @endforeach
+                      
+                      @endif
+                      @endauth
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#"></a>
@@ -101,9 +114,14 @@
                       <a class="nav-link" href="{{ route('password.reset',csrf_token()) }} ">{{ __('Setting') }}</a>
 
                       <a class="nav-link" href="{{ route('logout') }}"
+                    
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
                       </a>
+                      @if(Auth::user()->id == 1)
+                      <a class="nav-link" href="{{ route('dashboard') }} ">{{ __('Admin ') }}</a>
+                      @endif
+
         
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                           @csrf
@@ -340,6 +358,7 @@
     <!-- Scripts -->
     <script src="{{asset('assets/js/page.min.js')}}"></script>
     <script src="{{asset('assets/js/script.js')}}"></script>
+    <script>
 
 
   </body>

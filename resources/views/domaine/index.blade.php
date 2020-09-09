@@ -41,9 +41,7 @@
                               <button type="button" id="detail" class="btn btn-info btn-sm" >
                                     {{ __('Detail') }}
                                 </button>
-                                <button type="button" id="supprimer" class="btn btn-danger btn-sm" onclick="handledelete(' {{ $domaine->id }} ')">
-                                    {{ __('Supprimer ') }}
-                                </button>
+                               
                             </td>
                           </tr>
                           @endforeach  

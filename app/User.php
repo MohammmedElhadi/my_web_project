@@ -40,6 +40,7 @@ class User extends Authenticatable
     
     public function events()
     {
+        return $this->belongsToMany('App\Event' , 'event_user', 'user_id' , 'event_id');
         return $this->belongsToMany('App\Event');
     }
     public function isInteressetedIn(Event $event){
