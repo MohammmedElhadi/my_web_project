@@ -6,8 +6,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
+
     <title>EMP Events</title>
-    
 
     <!-- Styles -->
     <link href="{{asset('assets/css/page.min.css')}}" rel="stylesheet">
@@ -263,9 +263,11 @@
                               </div>
                           </div>
                       </div>
-
+                  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
                     <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                   </div>
                 </form>
@@ -342,6 +344,8 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
                     <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
                   </div>
                 </form>
@@ -356,6 +360,6 @@
     <script src="{{asset('assets/js/script.js')}}"></script>
     <script>
 
-    </script>
+
   </body>
 </html>
