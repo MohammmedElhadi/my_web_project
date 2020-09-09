@@ -155,7 +155,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', null),
+    'domain' => 'http://localhost/my_web_project/public/',
 
     /*
     |--------------------------------------------------------------------------
