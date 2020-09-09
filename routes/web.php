@@ -15,11 +15,20 @@ use App\Event;
 |
 */
 
-Route::get('/', function () {return view('welcome')->with('evenments','App\Event'::all())->with('users', 'App\User'::all())->with('domaines', 'App\Domaine'::all());})->name('welcome');
+Route::get('/', function () { 
+//    $user = auth()->user();
+//     dd($user->unreadNotifications->first()->data['event']);
+//    // dd();
+    return view('welcome')->with('evenments','App\Event'::all())->with('users', 'App\User'::all())->with('domaines', 'App\Domaine'::all());})->name('welcome');
 Route::get('/about', function () {return view('frontend.about');})->name('about');
 Route::resource('evenement' , 'EventController');
 Route::get('/events', function () { return view('frontend.events')->with('evenments','App\Event'::all())->with('categories', 'App\Category'::all())->with('domaines', 'App\Domaine'::all());})->name('events');
 Route::get('/myevents', function () { return view('frontend.userevents')->with('categories', 'App\Category'::all())->with('domaines', 'App\Domaine'::all());})->name('myevents');
+Route::get('/myevents/notifications', function () {
+    foreach (Auth::user()->unreadNotifications as $notification) {
+        $notification->markAsRead();
+    }
+    return view('frontend.userevents')->with('categories', 'App\Category'::all())->with('domaines', 'App\Domaine'::all());})->name('myevents.notifications');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

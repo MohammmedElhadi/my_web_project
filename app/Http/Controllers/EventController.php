@@ -171,12 +171,12 @@ class EventController extends Controller
 
     public function sendNotification($id){
         $event = Event::find($id);
-        $user = 'App\User'::find(1);
-        $user->events()->attach(1);
-       //$users =   $event->users;
-        //foreach($users as $user){
+        // $user = 'App\User'::find(1);
+        // $user->events()->attach(1);
+       $users =   $event->users;
+        foreach($users as $user){
         $user->notify(new EventSoon($event));
-    //}
+    }
         return response()->json(['noti' => $user->unreadNotifications]);
     }
 }

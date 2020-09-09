@@ -55,6 +55,19 @@
                       <a class="nav-link" href="">Arabe</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="#"> <i class="fa fa-bell" aria-hidden="true"></i>@auth @if(Auth::user()->unreadNotifications()->count() > 0) <span class="badge badge-danger">{{Auth::user()->unreadNotifications()->count()}}</span> @endif @endauth <span class="arrow"></span></a>
+                    <nav class="nav">
+                      @auth
+                      @if(Auth::user()->unreadNotifications()->count() > 0)
+                      @foreach (Auth::user()->unreadNotifications as $notification)
+                      
+                      <a class="nav-link" href="{{route('myevents.notifications')}}">L'evenement {{($notification->data['event']['nom'])}} est bientot Preparez vous! </a>
+                      @endforeach
+                      
+                      @endif
+                      @endauth
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="#"></a>
                   </li>
                   <li class="nav-item">

@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notification;
 class EventSoon extends Notification implements ShouldQueue
 {
     use Queueable;
-    private $event;
+    public $event;
 
     /**
      * Create a new notification instance.
@@ -56,8 +56,7 @@ class EventSoon extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'nom' => $this->event->nom,
-            'date_debut' => $this->event->date_debut
+           'event' => $this->event
         ];
     }
 }
