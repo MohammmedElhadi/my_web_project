@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'provider', 'provider_id'
     ];
 
     /**
@@ -38,9 +38,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function interrested()
+    public function events()
     {
-        return $this->belongsToMany('App\Events' , 'event_user', 'user_id' , 'event_id');
+        return $this->belongsToMany('App\Event');
+    }
+    public function isInteressetedIn(Event $event){
+        $events = $this->events;
+        return !$events->contains($event);
     }
 
 }

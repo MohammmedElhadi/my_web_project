@@ -6,7 +6,9 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>SaaS 1 — TheSaaS Sample Demo Landing Page</title>
+    <title>EMP Events @auth
+        jksfdhkjsHFLJhkjsdhf
+    @endauth</title>
     
 
     <!-- Styles -->
@@ -15,10 +17,10 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="{{('assets/img/apple-touch-icon.png')}}">
-    <link rel="icon" href="{{('assets/img/favicon.png')}}">
+    <link rel="icon" href="{{('assets/img/scs.png')}}">
   </head>
 
-  <body>
+  <body >
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-stick-dark" data-navbar="sticky">
@@ -26,7 +28,7 @@
       
               <div class="navbar-left">
                 <button class="navbar-toggler" type="button">&#9776;</button>
-                <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="{{ route('welcome') }}">
                   <img class="logo-dark" src="assets/img/logo-dark.png" alt="logo">
                   <img class="logo-light" src="assets/img/logo-light.png" alt="logo">
                 </a>
@@ -46,16 +48,13 @@
                     <a class="nav-link" href="{{ route('events') }}">{{ __('Events') }}</a>
                   </li>
       
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">{{ __('About') }} </a>
 
-                  </li>
 
                   <li class="nav-item">
                     <a class="nav-link" href="#">{{ __('Language') }} <span class="arrow"></span></a>
                     <nav class="nav">
-                      <a class="nav-link" href="">Fr</a>
-                      <a class="nav-link" href="">En</a>
+                      <a class="nav-link" href="">Français</a>
+                      <a class="nav-link" href="">Arabe</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#"></a>
@@ -68,6 +67,9 @@
 
                   @guest
                   @else
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#"></a>
                   </li>
@@ -96,9 +98,9 @@
                      
                     <a class="nav-link" href="#"><i class="fa fa-user-circle  fa-2x"></i> {{ Auth::user()->name }} <span class="arrow"></span></a>
                     <nav class="nav">
-                      <a class="nav-link" href="blog/classic.html">{{ __('Favourites') }}</a>
+                      <a class="nav-link" href="{{ route('myevents') }}">{{ __('Favourites') }}</a>
 
-                      <a class="nav-link" href="blog/classic.html">{{ __('Setting') }}</a>
+                      <a class="nav-link" href="{{ route('password.reset',csrf_token()) }} ">{{ __('Setting') }}</a>
 
                       <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -125,8 +127,8 @@
                     <p style="width: 1%"></p>
                     <a class="btn btn-round btn-light btn-sm" data-toggle="modal" data-target="#modal-sign-up">{{ __('Sign Up') }}</a>               
               @endif
-          @else
-          @endguest
+              @else
+              @endguest
 
         </nav><!-- /.navbar -->
 
@@ -139,20 +141,18 @@
                 <div class="row gap-y align-items-center">
         
                   <div class="col-md-3 text-center text-md-left">
-                    <a href="#"><img src="../assets/img/logo-dark.png" alt="logo"></a>
                   </div>
         
                   <div class="col-md-6">
                     <div class="nav nav-center">
-                      <a class="nav-link" href="#">About</a>
-                      <a class="nav-link" href="#">Blog</a>
-                      <a class="nav-link" href="#">Policy</a>
-                      <a class="nav-link" href="#">Contact</a>
+                        <p>Made with <i class="fa fa-heart" ></i> in Algeria.</p>
+                        
+                        
                     </div>
                   </div>
         
                   <div class="col-md-3 text-center text-md-right">
-                    <small>© 2019. All rights reserved.</small>
+                    <small>© 2020. All rights reserved.</small>
                   </div>
         
                 </div>
@@ -247,9 +247,11 @@
                               </div>
                           </div>
                       </div>
-
+                  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
                     <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                   </div>
                 </form>
@@ -326,6 +328,8 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
                     <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
                   </div>
                 </form>
@@ -333,6 +337,7 @@
             </div>
           </div>
 
+          <button class="btn btn-circle btn-primary scroll-top"><i class="fa fa-angle-up"></i></button>
 
     <!-- Scripts -->
     <script src="{{asset('assets/js/page.min.js')}}"></script>

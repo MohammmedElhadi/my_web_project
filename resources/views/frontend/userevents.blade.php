@@ -33,9 +33,9 @@
                     @endforeach
                   </nav>
                   <div class="row gap-y gap-12" data-shuffle="list" >
-                    @foreach ($evenments as $event)
+                    @foreach (Auth::user()->events as $event)
                     
-                    <div  id="{{ $event->id }}" class="row gap-y align-items-center" data-shuffle="item" data-groups="{{$event->category->nom}}@foreach($event->domaines as $domaine),{{ $domaine->nom }}@endforeach">
+                    <div  id="{{ $event->id }}" class="row gap-y align-items-center" data-shuffle="item" data-groups="{{$event->category->nom}}@foreach($event->domaines as $domaine) ,{{ $domaine->nom }}@endforeach">
                       <div class="col-md-5 ml-auto" style="padding: 4%">
                         <img class="rounded shadow-2" src="storage/{{ $event->logo }}" alt="...">
                       </div>
@@ -48,7 +48,6 @@
                         </div>
                         <p>{{ $event->description}}</p>
                         <div class="col-md-auto" id="intersser_btn">
-                          @if( $event->etat == 'programe')
                             @if( $event->users()->count() > $event->nombre_max_participant - 1)
                               <button type="submit" class="btn btn-danger" disabled>
                                 {{ __(" Places Complet ") }}
@@ -79,11 +78,8 @@
                               <button type="button" onclick="abonner('{{ $event->id }}' , '{{ Auth::id() }}')" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">{{ __(" s'intéresse ") }}</button>
                             @endif
                               @endif
-                          @else
-                              <button type="submit" class="btn btn-success" disabled>
-                                {{ __(" $event->etat") }}
-                              </button> 
-                          @endif
+                           
+                          
                             <button type="button" onclick="handleDetail('{{ $event }}' , '{{ $event->users()->count() }}' , '{{$event->category->nom}}' , '{{$event->domaines}}')" class="btn btn-default " >
                               {{ __(' detail') }}
                             </button>
@@ -254,9 +250,6 @@
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
-
-                        <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-                 
                     <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                   </div>
                 </form>
@@ -333,8 +326,6 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
-                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-
                     <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
                   </div>
                 </form>
@@ -353,18 +344,11 @@
                 </div>
 
                 <div class="modal-body ">
-                      <p class="lead mb-0">{{ __(' You must have  an account !') }}</p>
+                      <p class="lead mb-0">{{ __(' You have must an account !') }}</p>
                       <div class="divider"></div>
-                      
                       <button class="btn btn-block btn-default float-left" data-dismiss="modal" type="button"  style="width: 40%" data-toggle="modal" data-target="#modal-sign-up">{{ __(" Register ") }}</button>
                       <button class="btn btn-block btn-primary float-right" data-dismiss="modal" type="button" style="width: 40%" data-toggle="modal" data-target="#modal-login" >{{ __(" Login ") }}</button> 
-                      <hr>
-                      <div class="form-group row mb-0">
-                       <div class="col-md-8 offset-md-4">
-                          <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-                      </div>
-                      </div>
-                    </div>
+                </div>
               </div>
             </div>
           </div>

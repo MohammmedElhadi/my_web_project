@@ -20,8 +20,12 @@ class Event extends Model
     {
         return $this->belongsToMany('App\Organisateur');
     }
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany('App\Category');
+        return $this->belongsTo('App\Category');
+    }
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
     }
 }
