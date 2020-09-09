@@ -8,6 +8,6 @@ class Category extends Model
 { protected $guarded = [];
     public function events()
     {
-        return $this->hasMany('App\Events');
+        return $this->hasMany('App\Event');
     }
 }

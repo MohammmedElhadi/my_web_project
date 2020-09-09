@@ -8,9 +8,9 @@
           <div class="col-12"> 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">{{__('domaines')}}</h3>
+                <h3 class="card-title">{{__('categories')}}</h3>
                 <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#modal-new"  >
-                  {{ __('Nouveau domaine') }}
+                  {{ __('Nouveau category') }}
                 </button>
               </div>
               <div class="card-body">
@@ -19,34 +19,34 @@
                           <tr>
                             <th style="width: 8%">#</th>
                             <th style="width: 8%"></th>
-                            <th style="width:30%">{{__("Nom du domaine")}}</th>
+                            <th style="width:30%">{{__("Nom du category")}}</th>
                             <th style="width:8%">{{__('Nombre d évenement')}}</th>
 
                             <th style="width: 15%">{{__('Action')}}</th>
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($domaines as $index => $domaine )
+                          @foreach ($categories as $index => $category )
                         <tr >
                               <td class="table_row" >{{ $index + 1 }}  </td>
                               <td></td>
-                              <td >{{$domaine->nom}}</td>
-                              <td>{{$domaine->events()->count()}}</td>
+                              <td >{{$category->nom}}</td>
+                              <td>{{$category->events()->count()}}</td>
                            >
                               <td >
                         
-                              <button type="button" id="Modifier" class="btn btn-info btn-sm"  onclick="handleedit('{{ $domaine }}')" >
+                              <button type="button" id="Modifier" class="btn btn-info btn-sm"  onclick="handleedit('{{ $category }}')" >
                                     {{ __('Modifier') }}
                                 </button>
-                              <button type="button" id="detail" class="btn btn-info btn-sm" >
-                                    {{ __('Detail') }}
+                             
+                                <button type="button" id="supprimer" class="btn btn-danger btn-sm" onclick="handledelete(' {{ $category->id }} ')">
+                                    {{ __('Supprimer ') }}
                                 </button>
-                               
                             </td>
                           </tr>
                           @endforeach  
                         </tbody>
-                        <tfoot><tr>{{$domaines->links()}}</tr></tfoot>
+                        <tfoot><tr>{{$categories->links()}}</tr></tfoot>
                       </table>
               </div>
               <!-- /.card-body -->
@@ -64,16 +64,16 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">{{__('Ajouter un domaine')}}</h4>
+              <h4 class="modal-title">{{__('Ajouter un category')}}</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-            <form action="{{route('domaine.store')}}" method="post">
+            <form action="{{route('category.store')}}" method="post">
               @csrf
                 <div class="form-group">
-                  <input type="text" required name="nom_domaine" id="nom_domaine" class="form-control" placeholder="Nom de l'domaine"  
+                  <input type="text" required name="nom_category" id="nom_category" class="form-control" placeholder="Nom de l'category"  
                                     class="text-muted">
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -105,7 +105,7 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-              <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom du domainet"  
+              <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom du categoryt"  
                                 class="text-muted">
             </div>
          </div>
@@ -152,7 +152,7 @@
 <script>
 function handleedit(data)  {
     form = document.getElementById('edit_form');
-    form.action = 'domaine/'+JSON.parse(data).id;
+    form.action = 'category/'+JSON.parse(data).id;
     document.getElementById('nom').setAttribute('value' , JSON.parse(data).nom);
     $('#modal-edit').modal('show');
 }      
@@ -161,7 +161,7 @@ function handleedit(data)  {
 
 function handledelete(id)  {
     form = document.getElementById('delete_form');
-    form.action = 'domaine/'+id;
+    form.action = 'category/'+id;
     form.method = 'DELETE'
     console.log(form.method);
     $('#modal-danger').modal('show');

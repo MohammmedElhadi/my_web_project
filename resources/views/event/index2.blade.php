@@ -204,7 +204,11 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default " data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger ">Oui</button>
+        <form  id="form_delete" action="" method ="POST" >
+          @csrf
+          @method('DELETE')
+          <button type="submit"  id="supprimer_m" data-id="" class="btn btn-danger ">Oui</button>
+        </form>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -247,6 +251,7 @@
     //  });
   
     $(function() {
+      
     $('#events_table').DataTable({
         processing: true,
         serverSide: true,
@@ -301,7 +306,14 @@ $(document).ready(function() {
 
   });
 
-
+  $('body').on('click' , '#supprimer', function () {
+    $('#modal-danger').modal('show')
+    console.log($(this).data('id'))
+    document.getElementById('form_delete').action = 'evenement/'+$(this).data('id')
+ })
 });
+
+
+
 </script>
 @endsection

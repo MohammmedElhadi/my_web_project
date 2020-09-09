@@ -166,7 +166,10 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        
+
+        $event= Event::find($id)->delete();
+
+        return redirect()->back();
     }
 
     public function sendNotification($id){
@@ -177,6 +180,6 @@ class EventController extends Controller
         foreach($users as $user){
         $user->notify(new EventSoon($event));
     }
-        return response()->json(['noti' => $user->unreadNotifications]);
+        return response()->json('done');
     }
 }
