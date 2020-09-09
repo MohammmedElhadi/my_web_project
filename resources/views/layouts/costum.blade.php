@@ -248,6 +248,8 @@
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
                     <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                   </div>
                 </form>
@@ -324,6 +326,8 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+                    <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
                     <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
                   </div>
                 </form>

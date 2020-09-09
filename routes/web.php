@@ -53,7 +53,10 @@ Route::get('desabonner/{id}' , function(){
     return response("success",200);
     
 });
- 
+
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 Auth::routes();
 
 
