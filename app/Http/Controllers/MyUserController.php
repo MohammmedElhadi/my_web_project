@@ -8,7 +8,7 @@ use DataTables;
 class MyUserController extends Controller
 {
     function index (){
-        return view('user.index');//->with('users',User::all());
+        return view('user.index')->with('users',User::all());
     }
     public function getEvents(){
 

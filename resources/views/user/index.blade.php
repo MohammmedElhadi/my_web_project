@@ -31,7 +31,7 @@
                           <td >{{$user->name}}</td>
                           <td>{{$user->email}}</td>
                           <td id="{{$user->id}}">{{$user->getRoleNames()[0]}}</td>
-                          <td  >
+                          <td >
                            
                                  <button  id="revoke{{$user->id}}"
                                  @if ($user->getRoleNames()[0] != "admin")
