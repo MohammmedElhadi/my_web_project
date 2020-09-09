@@ -343,5 +343,6 @@
     <script src="{{asset('assets/js/page.min.js')}}"></script>
     <script src="{{asset('assets/js/script.js')}}"></script>
 
+
   </body>
 </html>

@@ -15,7 +15,7 @@ class SocialController extends Controller
  }
  public function callback($provider)
  {
-   $getInfo = Socialite::driver($provider)->stateless()->user(); 
+   $getInfo = Socialite::driver($provider)->user(); 
    //dd($getInfo);
    $user = User::firstOrCreate(['email' => $getInfo->email ] , [
     'name'     => $getInfo->name,
@@ -23,10 +23,9 @@ class SocialController extends Controller
     'provider' => $provider,
     'provider_id' => $getInfo->id
    ]);
-   //$user = $this->createUser($getInfo,$provider); 
 
    Auth::login($user);
-   //dd(Auth::user());
-   return redirect()->intended('welcome/');
+
+   return redirect()->intended('');
  }
 }
