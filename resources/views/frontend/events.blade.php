@@ -255,8 +255,10 @@
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
 
+
                         <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
                  
+
                     <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
                   </div>
                 </form>
@@ -333,7 +335,10 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
+
                     <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
+
+
 
                     <button type="submit" class="btn btn-primary">{{ __('Register') }}</button>
                   </div>
@@ -353,6 +358,7 @@
                 </div>
 
                 <div class="modal-body ">
+
                       <p class="lead mb-0">{{ __(' You must have  an account !') }}</p>
                       <div class="divider"></div>
                       
@@ -364,7 +370,13 @@
                           <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
                       </div>
                       </div>
-                    </div>
+
+                      <p class="lead mb-0">{{ __(' You have must an account !') }}</p>
+                      <div class="divider"></div>
+                      <button class="btn btn-block btn-default float-left" data-dismiss="modal" type="button"  style="width: 40%" data-toggle="modal" data-target="#modal-sign-up">{{ __(" Register ") }}</button>
+                      <button class="btn btn-block btn-primary float-right" data-dismiss="modal" type="button" style="width: 40%" data-toggle="modal" data-target="#modal-login" >{{ __(" Login ") }}</button> 
+                </div>
+
               </div>
             </div>
           </div>

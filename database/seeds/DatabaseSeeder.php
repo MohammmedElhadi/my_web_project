@@ -35,7 +35,11 @@ class DatabaseSeeder extends Seeder
             'nom' => "journee d'etude",
         ]);
         Category::create([
+
             'nom' => 'conférence',
+
+            'nom' => 'confirence',
+
         ]);
         Category::create([
             'nom' => 'porte ouverte',

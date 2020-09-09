@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Event;
+
 use App\User;
 
 /*
@@ -17,6 +18,7 @@ use App\User;
 */
 
 Route::get('/', function () {return view('welcome')->with('evenments','App\Event'::all())->with('users', 'App\User'::all())->with('domaines', 'App\Domaine'::all());})->name('welcome');
+
 Route::get('/about', function () {
     
     return view('frontend.about');})->name('about');
@@ -57,8 +59,12 @@ Route::get('desabonner/{id}' , function(){
     
 });
 
+
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
+
+
+ 
 
 Auth::routes();
 

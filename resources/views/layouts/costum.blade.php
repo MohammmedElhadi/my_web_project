@@ -6,10 +6,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>EMP Events @auth
-        jksfdhkjsHFLJhkjsdhf
-    @endauth</title>
-    
+
+    <title>EMP Events</title>
 
     <!-- Styles -->
     <link href="{{('assets/css/page.min.css')}}" rel="stylesheet">
